@@ -1,11 +1,12 @@
+import config from "./config";
 import express from "express";
+import modulesStarter from "./loaders";
 import "reflect-metadata";
-import router from "./api/routes";
 
-const createApp = () => {
-  const app = express();
-  app.use("/", router);
-  return app;
-};
+// Criando o app
+const app = express();
 
-export default createApp;
+app.listen(config.port, async () => {
+  await modulesStarter({ app });
+  console.log(`Aplicação rodando na porta ${config.port}`);
+});
