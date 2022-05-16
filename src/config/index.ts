@@ -11,7 +11,14 @@ if (envFound.error) {
 export default {
   port: process.env.PORT,
   database_url: process.env.DATABASE_URL,
+  base_url: process.env.BASE_URL,
   api: {
     prefix: "/api",
+  },
+  mail: {
+    smtp_host: process.env.SMTP_HOST,
+    smtp_port: process.env.SMTP_PORT,
+    smtp_user: process.env.SMTP_USER,
+    smtp_pass: process.env.SMTP_PASS,
   },
 };

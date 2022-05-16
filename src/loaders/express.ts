@@ -6,6 +6,7 @@ import handleError from "../api/middlewares/error_handler";
 require("express-async-errors");
 
 const expressLoader = ({ app }: { app: express.Application }) => {
+  app.set("view engine", "ejs");
   app.use(cors());
   app.use(express.json());
   app.use(config.api.prefix, routes());

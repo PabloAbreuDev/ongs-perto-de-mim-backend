@@ -2,7 +2,6 @@ import config from "./config";
 import express from "express";
 import modulesStarter from "./loaders";
 import "reflect-metadata";
-import handleError from "./api/middlewares/error_handler";
 
 // Criando o app
 const app = express();
