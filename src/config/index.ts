@@ -21,4 +21,8 @@ export default {
     smtp_user: process.env.SMTP_USER,
     smtp_pass: process.env.SMTP_PASS,
   },
+  jwt_secret: process.env.JWT_SECRET,
+  jwt_expire: process.env.JWT_EXPIRE,
+  refresh_secret: process.env.REFRESH_SECRET,
+  refresh_expire: process.env.REFRESH_EXPIRE
 };
