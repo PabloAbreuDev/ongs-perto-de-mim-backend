@@ -24,5 +24,9 @@ export default {
   jwt_secret: process.env.JWT_SECRET,
   jwt_expire: process.env.JWT_EXPIRE,
   refresh_secret: process.env.REFRESH_SECRET,
-  refresh_expire: process.env.REFRESH_EXPIRE
+  refresh_expire: process.env.REFRESH_EXPIRE,
+  aws_access_key_id: process.env.AWS_SECRET_ACCESS_KEY_ID,
+  aws_secret_access_key: process.env.AWS_SECRET_ACCESS_KEY,
+  aws_region: process.env.AWS_REGION,
+  aws_s3_bucket: process.env.AWS_S3_BUCKET,
 };

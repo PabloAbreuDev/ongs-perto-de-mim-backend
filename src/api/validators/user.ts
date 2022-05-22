@@ -22,9 +22,9 @@ export const createUserValidateRules = () => {
       .isLength({ min: 3, max: 15 })
       .withMessage("Informe um password que tenha entre 3 r 15 caracteres"),
 
-    // body("genero")
-    //   .if(body("genero").exists())
-    //   .isString()
-    //   .withMessage("Need to be string"),
+    body("genero")
+      .if(body("genero").exists())
+      .isString()
+      .withMessage("Escreva uma string"),
   ];
 };
