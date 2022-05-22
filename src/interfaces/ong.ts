@@ -9,6 +9,8 @@ export interface IOng {
   cidade: string;
   estado: string;
   fotosPerfil: IFoto[];
+  localizacao: string;
+  contatos: string[];
 }
 
 export interface IFoto {
@@ -27,4 +29,6 @@ export interface IOngDTO {
   complemento?: string;
   cidade?: string;
   estado?: string;
+  localizacao?: string;
+  contatos?: string[];
 }

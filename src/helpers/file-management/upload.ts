@@ -4,15 +4,15 @@ import { v4 as uuidv4 } from "uuid";
 import config from "../../config";
 
 const s3 = new aws.S3({
-  accessKeyId: config.aws_access_key_id,
-  secretAccessKey: config.aws_secret_access_key,
+  accessKeyId: config.aws.aws_access_key_id,
+  secretAccessKey: config.aws.aws_secret_access_key,
 });
 
 const uploadFile = (file: any) => {
   const fileStream = fs.createReadStream(file.path);
 
   const uploadParams = {
-    Bucket: config.aws_s3_bucket + "",
+    Bucket: config.aws.aws_s3_bucket + "",
     Body: fileStream,
     Key: `${uuidv4()}-${file.filename}`,
   };

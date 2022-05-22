@@ -3,12 +3,19 @@ import deleteFile from "../helpers/file-management/delete";
 import uploadFile from "../helpers/file-management/upload";
 import { IOngDTO } from "../interfaces/ong";
 import Ong from "../models/ong";
+import User from "../models/user";
 
 class OngService {
   constructor() {}
 
   // Cria uma ong
   async create(ong: IOngDTO) {
+    const user = await User.findOne({ _id: ong.dono });
+
+    if (!user) {
+      throw new CustomError("Usuário não encontrado", 400);
+    }
+
     try {
       const createOng = await Ong.create(ong);
       return { msg: "Ong criada com sucesso" };

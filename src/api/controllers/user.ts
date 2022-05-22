@@ -22,9 +22,28 @@ class UserController {
   }
 
   async refresh(req: Request, res: Response) {
-    const { refreshToken, user_id } = req.body
-    const response = await UserService.refresh({ user_id, refreshToken })
+    const { refreshToken, user_id } = req.body;
+    const response = await UserService.refresh({ user_id, refreshToken });
     return res.status(200).json(response);
+  }
+
+  async addContact(req: Request, res: Response) {
+    const { contact_id, ong_id } = req.body;
+    const response = await UserService.inviteToContactOng({
+      ong_id,
+      contact_id,
+      user_id: req.user.user_id,
+    });
+    return res.status(201).json(response.msg);
+  }
+
+  async acceptContactInvite(req: Request, res: Response) {
+    const { invite_id } = req.params;
+    const response = await UserService.acceptInviteToContact({
+      invite_id,
+      user_id: req.user.user_id,
+    });
+    return res.status(200).json(response.msg);
   }
 }
 

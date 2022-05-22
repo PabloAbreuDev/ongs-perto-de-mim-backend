@@ -54,6 +54,11 @@ export const createOngValidateRules = () => {
       .isLength({ min: 2, max: 2 })
       .isString()
       .withMessage("Informe o estado"),
+
+    body("localizacao")
+      .if(body("localizacao").exists())
+      .isString()
+      .isLength({ max: 1000 }),
   ];
 };
 

@@ -15,6 +15,13 @@ const ongSchema = new Schema<IOng>({
   cidade: { type: String, required: true },
   estado: { type: String, required: true },
   fotosPerfil: [{ nome: String, descricao: String }],
+  contatos: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: "User",
+    },
+  ],
+  localizacao: { type: String },
 });
 
 const Ong = model<IOng>("Ong", ongSchema);

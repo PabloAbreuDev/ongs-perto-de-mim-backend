@@ -28,3 +28,10 @@ export const createUserValidateRules = () => {
       .withMessage("Escreva uma string"),
   ];
 };
+
+export const addContactValidateRules = () => {
+  return [
+    body("ong_id").isString().withMessage("Informe o ID da ong"),
+    body("contact_id").isString().withMessage("Informe o ID do contato"),
+  ];
+};

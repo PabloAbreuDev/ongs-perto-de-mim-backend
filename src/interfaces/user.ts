@@ -5,6 +5,7 @@ export interface IUser {
   password: string;
   verifyCode?: string;
   verified?: boolean;
+  ongsParticipo: string[];
 }
 
 export interface IUserDTO {
@@ -13,4 +14,5 @@ export interface IUserDTO {
   email: string;
   password: string;
   verifyCode?: string;
+  ongsParticipo?: string[];
 }

@@ -8,6 +8,12 @@ const userSchema = new Schema<IUser>({
   password: { type: String, required: true },
   verifyCode: { type: String, require: true },
   verified: { type: Boolean, default: false },
+  ongsParticipo: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: "Ong",
+    },
+  ],
 });
 
 const User = model<IUser>("User", userSchema);

@@ -5,6 +5,7 @@ import OngService from "../../services/ong";
 class OngController {
   async create(req: Request, res: Response) {
     const ong: IOngDTO = req.body;
+    ong.dono = req.body.user_id;
     const response = await OngService.create(ong);
     return res.status(201).json({ msg: response.msg });
   }
