@@ -45,6 +45,15 @@ class UserController {
     });
     return res.status(200).json(response.msg);
   }
+
+  async updateProfilePicture(req: Request, res: Response) {
+    const file = req.file;
+    const response = await UserService.newProfilePicture({
+      file,
+      user_id: req.user.user_id,
+    });
+    return res.status(200).json(response.msg);
+  }
 }
 
 export default UserController;

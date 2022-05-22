@@ -6,6 +6,7 @@ import {
 import UserController from "../controllers/user";
 import validate from "../middlewares/validate";
 import authMiddleware from "../middlewares/authMiddleware";
+import { upload } from "../../helpers/file-management/multer";
 
 const user = new UserController();
 
@@ -31,4 +32,10 @@ export default (app: Router) => {
     user.addContact
   );
   route.put("/contact/:invite_id", authMiddleware, user.acceptContactInvite);
+  route.put(
+    "/picture",
+    authMiddleware,
+    upload.single("upload"),
+    user.updateProfilePicture
+  );
 };

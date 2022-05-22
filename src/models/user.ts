@@ -14,6 +14,7 @@ const userSchema = new Schema<IUser>({
       ref: "Ong",
     },
   ],
+  pictureProfile: { type: String },
 });
 
 const User = model<IUser>("User", userSchema);

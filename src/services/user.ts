@@ -10,6 +10,8 @@ import jwt from "jsonwebtoken";
 import { verifyRefresh } from "../utils/token";
 import Ong from "../models/ong";
 import ContactInvite from "../models/contact-invite";
+import deleteFile from "../helpers/file-management/delete";
+import uploadFile from "../helpers/file-management/upload";
 
 class UserService {
   constructor() {}
@@ -201,6 +203,25 @@ class UserService {
     } catch (err) {
       console.log(err);
       throw new CustomError("Não foi possível aceitar o convite", 400);
+    }
+  }
+
+  async newProfilePicture({ file, user_id }: { file: any; user_id: string }) {
+    // Se já existe apaga
+    const user = await User.findById(user_id);
+    if (!user) {
+      throw new CustomError("Usuário não encontrado", 400);
+    }
+
+    try {
+      if (user.pictureProfile) {
+        deleteFile(user.pictureProfile);
+      }
+      user.pictureProfile = uploadFile(file);
+      await user.save();
+      return { msg: "Foto atualizada com sucesso" };
+    } catch (err) {
+      throw new CustomError("Não foi possível atualizar a foto", 400);
     }
   }
 }

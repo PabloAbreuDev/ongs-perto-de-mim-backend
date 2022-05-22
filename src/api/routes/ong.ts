@@ -6,17 +6,10 @@ import {
   createOngValidateRules,
   editPrfilePhotoValidationRules,
 } from "../validators/ong";
-import multer from "multer";
 import authMiddleware from "../middlewares/authMiddleware";
+import { upload } from "../../helpers/file-management/multer";
 
 const router = Router();
-const storage = multer.diskStorage({
-  destination: "uploads/",
-  filename: function (req, file, callback) {
-    callback(null, file.originalname);
-  },
-});
-const upload = multer({ storage: storage });
 
 const controller = new OngController();
 

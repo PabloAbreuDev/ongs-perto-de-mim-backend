@@ -6,6 +6,7 @@ export interface IUser {
   verifyCode?: string;
   verified?: boolean;
   ongsParticipo: string[];
+  pictureProfile: string;
 }
 
 export interface IUserDTO {
@@ -15,4 +16,5 @@ export interface IUserDTO {
   password: string;
   verifyCode?: string;
   ongsParticipo?: string[];
+  pictureProfile?: string;
 }
